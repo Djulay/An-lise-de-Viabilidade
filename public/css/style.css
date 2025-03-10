@@ -1,0 +1,25 @@
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+}
+
+.shake {
+    animation: shake 0.5s ease-in-out;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+}
+
+
+.scrolled {
+    background-color: #14192D !important; /* Azul escuro personalizado */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease-in-out;
+}
+
+
+
