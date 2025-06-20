@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 
 <head>
@@ -7,398 +6,359 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
 </head>
+
 <body>
 
     @include('menu')
 
-   <!-- ***** Slides ***** -->
-<div class="relative w-full h-screen overflow-hidden">
-    <div id="slider" class="relative w-full h-full flex transition-transform duration-700 ease-in-out">
-        <!-- Slide 1 -->
-        <div class="w-full flex-shrink-0 h-full bg-cover bg-center flex items-center justify-center text-white"
-             style="background-image: url('{{ asset('images/slide-01.jpg') }}');">
-            <div class="text-center  p-8 ">
-                <h2 class="text-4xl font-bold">Transforme-se em um <span class="text-orange-500">Analista de Projecto</span> em Apenas 3 Dias!</h2>
-                <p class="mt-4">Este curso abrange tudo, desde fórmulas básicas até automação com VBA.</p>
-                <div class="mt-6 flex justify-center space-x-4">
-                    <a href="#about" class="bg-orange-600 px-6 py-2 rounded hover:bg-orange-700">Saber Mais</a>
-                    <a href="#form" class="bg-green-600 px-6 py-2 rounded hover:bg-green-700">Inscreva-te</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide 2 -->
-        <div class="w-full flex-shrink-0 h-full bg-cover bg-center flex items-center justify-center text-white"
-             style="background-image: url('{{ asset('images/slide-02.jpg') }}');">
-            <div class="text-center ">
-                <h2 class="text-4xl font-bold"><span class="text-orange-500">Análise de Viabilidade</span> O Guia  para o Sucesso do Seu Projeto</h2>
-                <p class="mt-4">Está pensando em tirar uma ideia do papel? Antes de investir tempo e dinheiro, é crucial saber se o seu projeto tem chances reais de sucesso.</p>
-                <div class="mt-6 flex justify-center space-x-4">
-                    <a href="#about" class="bg-orange-600 px-6 py-2 rounded hover:bg-orange-700">Saber Mais</a>
-                    <a href="{{ url('/dashboard') }}" id="shake-button" class="bg-green-600 px-6 py-2 rounded hover:bg-green-700 inline-block">Crie Agora</a>                </div>
-            </div>
-        </div>
-
-        <!-- Slide 3 -->
-        <div class="w-full flex-shrink-0 h-full bg-cover bg-center flex items-center justify-center text-white"
-             style="background-image: url('{{ asset('images/slide-03.jpg') }}');">
-            <div class="text-center">
-                <h2 class="text-4xl font-bold">Comece sua Jornada Hoje Mesmo!</h2>
-                <p class="mt-4">Aprimore suas habilidades e se destaque no mercado de trabalho.</p>
-                <div class="mt-6 flex justify-center space-x-4">
-                    <a href="#about" class="bg-orange-600 px-6 py-2 rounded hover:bg-orange-700">Saber Mais</a>
-                    <a href="#form" id="shake-button" class="bg-green-600 px-6 py-2 rounded hover:bg-green-700 inline-block">Inscreva-te</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Botões de navegação -->
-    <button id="prev" class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-3 rounded-full">
-        ❮
-    </button>
-    <button id="next" class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-3 rounded-full">
-        ❯
-    </button>
-
-</div>
-
-                <!-- ***** Beneficios e resultados ***** -->
-<section class="  py-16 bg-gray-100" id="Benefícios">
-    <div class="container mx-auto px-8">
-        <div class="text-center mb-12">
-            <h6 class="text-lg font-bold text-orange-600 ">Benefícios</h6>
-            <h4 class="text-3xl font-bold text-gray-800">Resultados</h4>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="service-card bg-white p-6 rounded-lg shadow-md flex items-start space-x-4 transition-transform duration-300">
-                <i class="fas fa-archive text-green-600 text-3xl"></i>
-                <div>
-                    <h4 class="text-xl font-semibold text-gray-800">Identificação de Riscos e Oportunidades</h4>
-                    <p class="text-gray-600">Permite antecipar problemas potenciais e descobrir oportunidades que podem não ser óbvias inicialmente.</p>
-                </div>
-            </div>
-            <div class="service-card bg-white  p-6 rounded-lg shadow-md flex items-start space-x-4 transition-transform duration-300">
-                <i class="fas fa-cloud text-green-600 text-3xl"></i>
-                <div>
-                    <h4 class="text-xl font-semibold text-gray-800">Tomada de Decisão Informada</h4>
-                    <p class="text-gray-600">Fornece dados concretos e análises detalhadas para ajudar a decidir se vale a pena prosseguir com o projeto.</p>
-                </div>
-            </div>
-            <div class="service-card bg-white p-6 rounded-lg shadow-md flex items-start space-x-4 transition-transform duration-300">
-                <i class="fas fa-charging-station text-green-600 text-3xl"></i>
-                <div>
-                    <h4 class="text-xl font-semibold text-gray-800">Atração de Investidores</h4>
-                    <p class="text-gray-600">Um estudo de viabilidade bem feito pode aumentar a confiança dos investidores e facilitar a obtenção de financiamento.</p>
-                </div>
-            </div>
-            <div class="service-card bg-white p-6 rounded-lg shadow-md flex items-start space-x-4 transition-transform duration-300">
-                <i class="fas fa-suitcase text-green-600 text-3xl"></i>
-                <div>
-                    <h4 class="text-xl font-semibold text-gray-800">Otimização do Projeto</h4>
-                    <p class="text-gray-600">Ajuda a refinar o plano do projeto, ajustando-o para maximizar o retorno e minimizar os riscos.</p>
-                </div>
-            </div>
-            <div class="service-card bg-white p-6 rounded-lg shadow-md flex items-start space-x-4 transition-transform duration-300">
-                <i class="fas fa-archway text-green-600 text-3xl"></i>
-                <div>
-                    <h4 class="text-xl font-semibold text-gray-800">Alocação Eficiente de Recursos</h4>
-                    <p class="text-gray-600">Garante que os recursos (tempo, dinheiro, pessoal) sejam alocados da forma mais eficiente possível.</p>
-                </div>
-            </div>
-            <div class="service-card bg-white p-6  rounded-lg shadow-md flex items-start space-x-4 transition-transform duration-300">
-                <i class="fas fa-puzzle-piece text-green-600 text-3xl"></i>
-                <div>
-                    <h4 class="text-xl font-semibold text-gray-800">Redução de Perdas</h4>
-                    <p class="text-gray-600">Evita o investimento em projetos que provavelmente falharão, economizando tempo e dinheiro.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="my-10">
-    <div class="w-full h-64 bg-cover bg-center flex items-center text-white" style="background-image: url('{{ asset('images/heading-bg.jpg') }}');">
-        <div class="max-w-screen-xl mx-auto px-4 md:px-20 py-10 flex flex-col md:flex-row justify-between items-center w-full">
-            <div class="font-bold text-2xl md:text-3xl text-center md:text-left mb-4 md:mb-0">
-                <h4>A <span class="text-orange-600">Solução</span> para a sua ideia de <br>
-                    <span class="text-green-600">Negócio ou Empresa</span>
-                </h4>
-            </div>
-            <div>
-                <div class="flex items-center space-x-4">
-                    <a href="#" class="bg-orange-600 px-6 py-2 rounded hover:bg-orange-700 text-center">Saber Mais</a>
-                    <a href="#" id="shake-button" class="bg-green-600 px-6 py-2 rounded hover:bg-green-700 text-center">Criar agora</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="about" class="my-16 px-4">
-    <div class="max-w-7xl mx-auto">
-        <div class="text-center mb-10">
-            <h6 class="text-lg font-bold text-orange-600">O que vai aprender</h6>
-            <h4 class="text-3xl font-bold">Durante o Curso</h4>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- Tabs -->
-            <div class="md:col-span-2">
-                <div class="p-6 rounded-lg shadow-md">
-                    <!-- Botões das abas -->
-                    <div class="flex space-x-4 mb-4 justify-center">
-                        <button class="tab-button active px-4 py-2 bg-gradient-to-r from-orange-500 to-red-500 text-white rounded" data-tab="web-design">Web Design</button>
-                        <button class="tab-button px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300" data-tab="graphics">Graphics</button>
-                        <button class="tab-button px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300" data-tab="web-coding">Web Coding</button>
+    <!-- ***** Slides ***** -->
+    <div class="relative w-full h-screen overflow-hidden">
+        <div id="slider" class="relative w-full h-full flex transition-transform duration-700 ease-in-out">
+            <!-- Slide 1 -->
+            <div class="w-full flex-shrink-0 h-full bg-cover bg-center flex items-center justify-center text-white"
+                style="background-image: url('{{ asset('images/slide-01.jpg') }}');">
+                <div class="text-center  p-8 ">
+                    <h2 class="text-4xl font-bold">Transforme-se em um <span class="text-orange-500">Analista de
+                            Projecto</span> em Apenas 3 Dias!</h2>
+                    <p class="mt-4">Este curso abrange tudo, desde fórmulas básicas até automação com VBA.</p>
+                    <div class="mt-6 flex justify-center space-x-4">
+                        <a href="#about" class="bg-orange-600 px-6 py-2 rounded hover:bg-orange-700">Saber Mais</a>
+                        <a href="#form" class="bg-green-600 px-6 py-2 rounded hover:bg-green-700">Inscreva-te</a>
                     </div>
+                </div>
+            </div>
 
-                    <!-- Conteúdo das abas -->
-                    <div class="tab-content active" id="web-design">
-                        <div class="bg-white p-4 rounded-lg shadow">
-                            <div class="grid grid-cols-4 font-semibold bg-gray-200 p-2 rounded">
-                                <span>Projeto</span>
-                                <span>Orçamento</span>
-                                <span>Prazo</span>
-                                <span>Cliente</span>
-                            </div>
-                            <div class="divide-y divide-gray-300">
-                                <div class="grid grid-cols-4 p-2">
-                                    <span>Website Redesign</span>
-                                    <span>$1,500 - $2,200</span>
-                                    <span>2022 Dec 12</span>
-                                    <span>Web Biz</span>
-                                </div>
-                                <div class="grid grid-cols-4 p-2">
-                                    <span>Website Renovation</span>
-                                    <span>$2,500 - $3,600</span>
-                                    <span>2022 Dec 10</span>
-                                    <span>Online Ads</span>
-                                </div>
-                                <div class="grid grid-cols-4 p-2">
-                                    <span>Website Renovation</span>
-                                    <span>$2,500 - $3,600</span>
-                                    <span>2022 Dec 10</span>
-                                    <span>Online Ads</span>
-                                </div>
-                            </div>
-                        </div>
+            <!-- Slide 2 -->
+            <div class="w-full flex-shrink-0 h-full bg-cover bg-center flex items-center justify-center text-white"
+                style="background-image: url('{{ asset('images/slide-02.jpg') }}');">
+                <div class="text-center ">
+                    <h2 class="text-4xl font-bold"><span class="text-orange-500">Análise de Viabilidade</span> O Guia
+                        para o Sucesso do Seu Projeto</h2>
+                    <p class="mt-4">Está pensando em tirar uma ideia do papel? Antes de investir tempo e dinheiro, é
+                        crucial saber se o seu projeto tem chances reais de sucesso.</p>
+                    <div class="mt-6 flex justify-center space-x-4">
+                        <a href="#about" class="bg-orange-600 px-6 py-2 rounded hover:bg-orange-700">Saber Mais</a>
+                        <a href="{{ url('/dashboard') }}" id="shake-button"
+                            class="bg-green-600 px-6 py-2 rounded hover:bg-green-700 inline-block">Crie Agora</a>
                     </div>
+                </div>
+            </div>
 
-                    <div class="tab-content hidden" id="graphics">
-                        <div class="bg-white p-4 rounded-lg shadow">
-                            <div class="grid grid-cols-4 font-semibold bg-gray-200 p-2 rounded">
-                                <span>Projeto</span>
-                                <span>Orçamento</span>
-                                <span>Prazo</span>
-                                <span>Cliente</span>
-                            </div>
-                            <div class="divide-y divide-gray-300">
-                                <div class="grid grid-cols-4 p-2">
-                                    <span>Graphics Redesign</span>
-                                    <span>$500 - $800</span>
-                                    <span>2022 Nov 24</span>
-                                    <span>Media One</span>
+            <!-- Slide 3 -->
+            <div class="w-full flex-shrink-0 h-full bg-cover bg-center flex items-center justify-center text-white"
+                style="background-image: url('{{ asset('images/slide-03.jpg') }}');">
+                <div class="text-center">
+                    <h2 class="text-4xl font-bold">Comece sua Jornada Hoje Mesmo!</h2>
+                    <p class="mt-4">Aprimore suas habilidades e se destaque no mercado de trabalho.</p>
+                    <div class="mt-6 flex justify-center space-x-4">
+                        <a href="#about" class="bg-orange-600 px-6 py-2 rounded hover:bg-orange-700">Saber Mais</a>
+                        <a href="#form" id="shake-button"
+                            class="bg-green-600 px-6 py-2 rounded hover:bg-green-700 inline-block">Inscreva-te</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Botões de navegação -->
+        <button id="prev"
+            class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-3 rounded-full">
+            ❮
+        </button>
+        <button id="next"
+            class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-3 rounded-full">
+            ❯
+        </button>
+
+    </div>
+
+    <!-- ***** Beneficios e resultados ***** -->
+    <section class="  py-16 bg-gray-100" id="Benefícios">
+        <div class="container mx-auto px-8">
+            <div class="text-center mb-12">
+                <h6 class="text-lg font-bold text-orange-600 ">Benefícios</h6>
+                <h4 class="text-3xl font-bold text-gray-800">Resultados</h4>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div
+                    class="service-card bg-white p-6 rounded-lg shadow-md flex items-start space-x-4 transition-transform duration-300">
+                    <i class="fas fa-archive text-green-600 text-3xl"></i>
+                    <div>
+                        <h4 class="text-xl font-semibold text-gray-800">Identificação de Riscos e Oportunidades</h4>
+                        <p class="text-gray-600">Permite antecipar problemas potenciais e descobrir oportunidades que
+                            podem não ser óbvias inicialmente.</p>
+                    </div>
+                </div>
+                <div
+                    class="service-card bg-white  p-6 rounded-lg shadow-md flex items-start space-x-4 transition-transform duration-300">
+                    <i class="fas fa-cloud text-green-600 text-3xl"></i>
+                    <div>
+                        <h4 class="text-xl font-semibold text-gray-800">Tomada de Decisão Informada</h4>
+                        <p class="text-gray-600">Fornece dados concretos e análises detalhadas para ajudar a decidir se
+                            vale a pena prosseguir com o projeto.</p>
+                    </div>
+                </div>
+                <div
+                    class="service-card bg-white p-6 rounded-lg shadow-md flex items-start space-x-4 transition-transform duration-300">
+                    <i class="fas fa-charging-station text-green-600 text-3xl"></i>
+                    <div>
+                        <h4 class="text-xl font-semibold text-gray-800">Atração de Investidores</h4>
+                        <p class="text-gray-600">Um estudo de viabilidade bem feito pode aumentar a confiança dos
+                            investidores e facilitar a obtenção de financiamento.</p>
+                    </div>
+                </div>
+                <div
+                    class="service-card bg-white p-6 rounded-lg shadow-md flex items-start space-x-4 transition-transform duration-300">
+                    <i class="fas fa-suitcase text-green-600 text-3xl"></i>
+                    <div>
+                        <h4 class="text-xl font-semibold text-gray-800">Otimização do Projeto</h4>
+                        <p class="text-gray-600">Ajuda a refinar o plano do projeto, ajustando-o para maximizar o
+                            retorno e minimizar os riscos.</p>
+                    </div>
+                </div>
+                <div
+                    class="service-card bg-white p-6 rounded-lg shadow-md flex items-start space-x-4 transition-transform duration-300">
+                    <i class="fas fa-archway text-green-600 text-3xl"></i>
+                    <div>
+                        <h4 class="text-xl font-semibold text-gray-800">Alocação Eficiente de Recursos</h4>
+                        <p class="text-gray-600">Garante que os recursos (tempo, dinheiro, pessoal) sejam alocados da
+                            forma mais eficiente possível.</p>
+                    </div>
+                </div>
+                <div
+                    class="service-card bg-white p-6  rounded-lg shadow-md flex items-start space-x-4 transition-transform duration-300">
+                    <i class="fas fa-puzzle-piece text-green-600 text-3xl"></i>
+                    <div>
+                        <h4 class="text-xl font-semibold text-gray-800">Redução de Perdas</h4>
+                        <p class="text-gray-600">Evita o investimento em projetos que provavelmente falharão,
+                            economizando tempo e dinheiro.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="my-10">
+        <div class="w-full h-64 bg-cover bg-center flex items-center text-white"
+            style="background-image: url('{{ asset('images/heading-bg.jpg') }}');">
+            <div
+                class="max-w-screen-xl mx-auto px-4 md:px-20 py-10 flex flex-col md:flex-row justify-between items-center w-full">
+                <div class="font-bold text-2xl md:text-3xl text-center md:text-left mb-4 md:mb-0">
+                    <h4>A <span class="text-orange-600">Solução</span> para a sua ideia de <br>
+                        <span class="text-green-600">Negócio ou Empresa</span>
+                    </h4>
+                </div>
+                <div>
+                    <div class="flex items-center space-x-4">
+                        <a href="#" class="bg-orange-600 px-6 py-2 rounded hover:bg-orange-700 text-center">Saber
+                            Mais</a>
+                        <a href="#" id="shake-button"
+                            class="bg-green-600 px-6 py-2 rounded hover:bg-green-700 text-center">Criar agora</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cursos" class="my-16 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-10">
+                <h6 class="text-lg font-bold text-orange-600">Cursos em Destaque</h6>
+                <h4 class="text-3xl font-bold">O que vai aprender</h4>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    @forelse ($cursosDestaque as $curso)
+                        <div
+                            class="bg-white rounded-lg shadow-md overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-lg">
+                            <img src="{{ $curso->imagem ? asset('storage/' . $curso->imagem) : 'https://via.placeholder.com/400x200' }}"
+                                alt="{{ $curso->nome }}" class="w-full h-48 object-cover">
+                            <div class="p-6 flex  items-start justify-between">
+                                <div>
+                                    <h3 class="text-xl font-semibold text-gray-800 mb-2">{{ $curso->nome }}</h3>
+                                    <p class="text-sm text-gray-600 mb-1"><span class="font-medium">Duração:</span>
+                                        {{ $curso->duracao ?? 'N/A' }}</p>
+                                    <p class="text-sm text-gray-600 mb-1"><span class="font-medium">Requisito:</span>
+                                        {{ $curso->requisito ?? 'N/A' }}</p>
+                                    <p class="text-sm text-gray-600 mb-4"><span class="font-medium">Modalidade:</span>
+                                        {{ $curso->modalidade }}</p>
                                 </div>
-                                <div class="grid grid-cols-4 p-2">
-                                    <span>Digital Graphics</span>
-                                    <span>$1,500 - $3,000</span>
-                                    <span>2022 Nov 18</span>
-                                    <span>Second Media</span>
-                                </div>
+                                <a href="{{ route('cursos.show', $curso->id) }}"
+                                    class="inline-block bg-orange-500 text-white px-4 py-2 mt-16 rounded-md shadow-sm hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 transition duration-200">Saber
+                                    Mais</a>
                             </div>
                         </div>
-                    </div>
+                    @empty
+                        <p class="text-center text-gray-500 col-span-full">Nenhum curso em destaque no momento.</p>
+                    @endforelse
+                </div>
+            </div>
 
-                    <div class="tab-content hidden" id="web-coding">
-                        <div class="bg-white p-4 rounded-lg shadow">
-                            <div class="grid grid-cols-4 font-semibold bg-gray-200 p-2 rounded">
-                                <span>Projeto</span>
-                                <span>Orçamento</span>
-                                <span>Prazo</span>
-                                <span>Tecnologia</span>
+        </div>
+    </section>
+
+    <!-- ======= formulario de inscrição ======= -->
+    <section class="relative py-12 bg-gray-100" id="form">
+        <div class="container mx-auto px-4 flex items-center justify-center">
+            <div
+                class="relative flex flex-col md:flex-row w-full md:w-3/4 lg:w-2/3 bg-white shadow-lg rounded-lg overflow-hidden">
+
+                <!-- Imagem (Maior que o container) -->
+                <div class="relative w-full md:w-1/2 hidden md:flex items-center justify-center">
+                    <img src="{{ asset('images/calculator-image.png') }}" alt="Imagem"
+                        class="absolute left-0 w-[120%] h-auto max-h-[150%] transform -translate-x-10 drop-shadow-lg">
+                </div>
+
+                <!-- Formulário -->
+                <div class="w-full md:w-1/2 bg-gray-900 text-white p-8">
+                    <div class="text-center md:text-left mb-6">
+                        <h6 class="text-orange-500 font-bold text-lg">Faça</h6>
+                        <h4 class="text-2xl font-bold">A sua inscrição agora</h4>
+                    </div>
+                    <form id="calculate" action="" method="get">
+                        <div class="grid grid-cols-1 gap-4">
+                            <div>
+                                <label for="name" class="block text-sm font-medium">Nome</label>
+                                <input type="text" name="name" id="name" placeholder="Seu nome"
+                                    class="mt-1 p-2 w-full border border-gray-700 rounded-lg bg-transparent text-white placeholder-gray-400 focus:ring-2"
+                                    required>
                             </div>
-                            <div class="divide-y divide-gray-300">
-                                <div class="grid grid-cols-4 p-2">
-                                    <span>Backend Coding</span>
-                                    <span>$2,000 - $5,000</span>
-                                    <span>2022 Nov 28</span>
-                                    <span>PHP MySQL</span>
-                                </div>
-                                <div class="grid grid-cols-4 p-2">
-                                    <span>New Web App</span>
-                                    <span>$1,500 - $3,000</span>
-                                    <span>2022 Nov 18</span>
-                                    <span>Python Programming</span>
-                                </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium">Email</label>
+                                <input type="email" name="email" id="email" placeholder="exemplo@email.com"
+                                    class="mt-1 p-2 w-full border border-gray-700 rounded-lg bg-transparent text-white placeholder-gray-400 "
+                                    required>
+                            </div>
+                            <div>
+                                <label for="tel" class="block text-sm font-medium">Nº de Telefone</label>
+                                <input type="tel" name="tel" id="tel" placeholder="ex: 923456789"
+                                    class="mt-1 p-2 w-full border border-gray-700 rounded-lg bg-transparent text-white placeholder-gray-400 "
+                                    required>
+                            </div>
+                            <div>
+                                <label for="bi" class="block text-sm font-medium">Nº do Bilhete de
+                                    Identidade</label>
+                                <input type="text" name="bi" id="bi" placeholder="ex: 123456789LA012"
+                                    class="mt-1 p-2 w-full border border-gray-700 rounded-lg bg-transparent text-white placeholder-gray-400 "
+                                    required>
+                            </div>
+                            <div>
+                                <label for="city" class="block text-sm font-medium">Cidade</label>
+                                <input type="text" name="city" id="city" placeholder="Sua cidade"
+                                    class="mt-1 p-2 w-full border border-gray-700 rounded-lg bg-transparent text-white placeholder-gray-400 ">
+                            </div>
+                            <div>
+                                <button type="submit" id="form-submit"
+                                    class="w-full bg-orange-500 text-white py-2 rounded-lg font-semibold hover:bg-orange-600 transition">
+                                    Inscreva-te Agora
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======= Testemunho ======= -->
+    <section id="testimonials" class="py-12 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <!-- Título -->
+            <div class="text-center mb-8">
+                <h6 class="text-orange-500 font-bold text-lg">Testemunho</h6>
+                <h4 class="text-3xl font-bold text-gray-800">O que nossos alunos dizem</h4>
+            </div>
+
+            <!-- Slider -->
+            <div class="relative w-full max-w-4xl mx-auto">
+                <div class="swiper testimonials-slider">
+                    <div class="swiper-wrapper">
+                        <!-- Testemunho 1 -->
+                        <div
+                            class="swiper-slide bg-white p-6 rounded-lg shadow-lg flex flex-col items-center text-center">
+                            <i class="fa fa-quote-left text-orange-500 text-3xl mb-4"></i>
+                            <p class="text-gray-700 italic">“Donec et nunc massa. Nullam non felis dignissim, dapibus
+                                turpis semper, vulputate lorem. Nam volutpat posuere tellus.”</p>
+                            <h4 class="text-lg font-semibold mt-4 text-gray-900">David Eigenberg</h4>
+                            <span class="text-sm text-gray-500">CEO of Mexant</span>
+                            <div class="w-16 h-16 mt-4 rounded-full overflow-hidden border-2 border-orange-500">
+                                <img src="{{ asset('images/testimonials-01.jpg') }}" alt="David Eigenberg"
+                                    class="w-full h-full object-cover">
+                            </div>
+                        </div>
+
+                        <!-- Testemunho 2 -->
+                        <div
+                            class="swiper-slide bg-white p-6 rounded-lg shadow-lg flex flex-col items-center text-center">
+                            <i class="fa fa-quote-left text-orange-500 text-3xl mb-4"></i>
+                            <p class="text-gray-700 italic">“Etiam id ligula risus. Fusce fringilla nisl nunc, nec
+                                rutrum lectus cursus nec. In blandit nibh dolor, at rutrum leo accumsan porta.”</p>
+                            <h4 class="text-lg font-semibold mt-4 text-gray-900">Andrew Garfield</h4>
+                            <span class="text-sm text-gray-500">CTO of Mexant</span>
+                            <div class="w-16 h-16 mt-4 rounded-full overflow-hidden border-2 border-orange-500">
+                                <img src="{{ asset('images/testimonials-01.jpg') }}" alt="Andrew Garfield"
+                                    class="w-full h-full object-cover">
+                            </div>
+                        </div>
+
+                        <!-- Testemunho 3 -->
+                        <div
+                            class="swiper-slide bg-white p-6 rounded-lg shadow-lg flex flex-col items-center text-center">
+                            <i class="fa fa-quote-left text-orange-500 text-3xl mb-4"></i>
+                            <p class="text-gray-700 italic">“Ut dictum vehicula massa, ac pharetra leo tincidunt eu.
+                                Phasellus in tristique magna, ac gravida leo. Integer sed lorem sapien.”</p>
+                            <h4 class="text-lg font-semibold mt-4 text-gray-900">George Lopez</h4>
+                            <span class="text-sm text-gray-500">Crypto Manager</span>
+                            <div class="w-16 h-16 mt-4 rounded-full overflow-hidden border-2 border-orange-500">
+                                <img src="{{ asset('images/testimonials-01.jpg') }}" alt="George Lopez"
+                                    class="w-full h-full object-cover">
                             </div>
                         </div>
                     </div>
+                </div>
 
+                <!-- Botões de Navegação -->
+                <div class="flex justify-center mt-6 space-x-4">
+                    <button class="swiper-button-prev p-2 bg-gray-300 rounded-full hover:bg-gray-400">
+                        <i class="fa fa-chevron-left"></i>
+                    </button>
+                    <button class="swiper-button-next p-2 bg-gray-300 rounded-full hover:bg-gray-400">
+                        <i class="fa fa-chevron-right"></i>
+                    </button>
                 </div>
             </div>
-
-            <!-- Description -->
-            <div class="bg-white p-6 rounded-lg shadow-md">
-                <h4 class="text-2xl font-bold mb-4 ">Descrição do Curso</h4>
-                <p class="text-gray-600 ">
-                    Um curso de analista de viabilidade capacita você a avaliar projetos e ideias de negócios de forma abrangente,
-                     analisando aspectos financeiros, técnicos, mercadológicos e legais. Você aprenderá a identificar riscos e oportunidades,
-                      prever cenários futuros e tomar decisões estratégicas para maximizar o retorno sobre o investimento. Ao final do curso,
-                       estará apto a elaborar estudos de viabilidade completos e confiáveis, fundamentais para o sucesso de qualquer empreendimento.                </p>
-                <a href="about-us.html" class="block text-center mt-4 bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded">Saber Mais</a>
-            </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- ======= formulario de inscrição ======= -->
-<section class="relative py-12 bg-gray-100" id="form">
-    <div class="container mx-auto px-4 flex items-center justify-center">
-        <div class="relative flex flex-col md:flex-row w-full md:w-3/4 lg:w-2/3 bg-white shadow-lg rounded-lg overflow-hidden">
-
-            <!-- Imagem (Maior que o container) -->
-            <div class="relative w-full md:w-1/2 hidden md:flex items-center justify-center">
-                <img src="{{ asset('images/calculator-image.png') }}" alt="Imagem"
-                    class="absolute left-0 w-[120%] h-auto max-h-[150%] transform -translate-x-10 drop-shadow-lg">
-            </div>
-
-            <!-- Formulário -->
-            <div class="w-full md:w-1/2 bg-gray-900 text-white p-8">
-                <div class="text-center md:text-left mb-6">
-                    <h6 class="text-orange-500 font-bold text-lg">Faça</h6>
-                    <h4 class="text-2xl font-bold">A sua inscrição agora</h4>
+    <section class="partners py-12 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6 justify-center items-center">
+                <div class="flex justify-center">
+                    <img src="{{ asset('images/client-01.png') }}" alt="Cliente 1" class="w-24 h-auto">
                 </div>
-                <form id="calculate" action="" method="get">
-                    <div class="grid grid-cols-1 gap-4">
-                        <div>
-                            <label for="name" class="block text-sm font-medium">Nome</label>
-                            <input type="text" name="name" id="name" placeholder="Seu nome"
-                                class="mt-1 p-2 w-full border border-gray-700 rounded-lg bg-transparent text-white placeholder-gray-400 focus:ring-2" required>
-                        </div>
-                        <div>
-                            <label for="email" class="block text-sm font-medium">Email</label>
-                            <input type="email" name="email" id="email" placeholder="exemplo@email.com"
-                                class="mt-1 p-2 w-full border border-gray-700 rounded-lg bg-transparent text-white placeholder-gray-400 " required>
-                        </div>
-                        <div>
-                            <label for="tel" class="block text-sm font-medium">Nº de Telefone</label>
-                            <input type="tel" name="tel" id="tel" placeholder="ex: 923456789"
-                                class="mt-1 p-2 w-full border border-gray-700 rounded-lg bg-transparent text-white placeholder-gray-400 " required>
-                        </div>
-                        <div>
-                            <label for="bi" class="block text-sm font-medium">Nº do Bilhete de Identidade</label>
-                            <input type="text" name="bi" id="bi" placeholder="ex: 123456789LA012"
-                                class="mt-1 p-2 w-full border border-gray-700 rounded-lg bg-transparent text-white placeholder-gray-400 " required>
-                        </div>
-                        <div>
-                            <label for="city" class="block text-sm font-medium">Cidade</label>
-                            <input type="text" name="city" id="city" placeholder="Sua cidade"
-                                class="mt-1 p-2 w-full border border-gray-700 rounded-lg bg-transparent text-white placeholder-gray-400 ">
-                        </div>
-                        <div>
-                            <button type="submit" id="form-submit"
-                                class="w-full bg-orange-500 text-white py-2 rounded-lg font-semibold hover:bg-orange-600 transition">
-                                Inscreva-te Agora
-                            </button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ======= Testemunho ======= -->
-<section id="testimonials" class="py-12 bg-gray-100">
-    <div class="container mx-auto px-4">
-        <!-- Título -->
-        <div class="text-center mb-8">
-            <h6 class="text-orange-500 font-bold text-lg">Testemunho</h6>
-            <h4 class="text-3xl font-bold text-gray-800">O que nossos alunos dizem</h4>
-        </div>
-
-        <!-- Slider -->
-        <div class="relative w-full max-w-4xl mx-auto">
-            <div class="swiper testimonials-slider">
-                <div class="swiper-wrapper">
-                    <!-- Testemunho 1 -->
-                    <div class="swiper-slide bg-white p-6 rounded-lg shadow-lg flex flex-col items-center text-center">
-                        <i class="fa fa-quote-left text-orange-500 text-3xl mb-4"></i>
-                        <p class="text-gray-700 italic">“Donec et nunc massa. Nullam non felis dignissim, dapibus turpis semper, vulputate lorem. Nam volutpat posuere tellus.”</p>
-                        <h4 class="text-lg font-semibold mt-4 text-gray-900">David Eigenberg</h4>
-                        <span class="text-sm text-gray-500">CEO of Mexant</span>
-                        <div class="w-16 h-16 mt-4 rounded-full overflow-hidden border-2 border-orange-500">
-                            <img src="{{ asset('images/testimonials-01.jpg') }}" alt="David Eigenberg" class="w-full h-full object-cover">
-                        </div>
-                    </div>
-
-                    <!-- Testemunho 2 -->
-                    <div class="swiper-slide bg-white p-6 rounded-lg shadow-lg flex flex-col items-center text-center">
-                        <i class="fa fa-quote-left text-orange-500 text-3xl mb-4"></i>
-                        <p class="text-gray-700 italic">“Etiam id ligula risus. Fusce fringilla nisl nunc, nec rutrum lectus cursus nec. In blandit nibh dolor, at rutrum leo accumsan porta.”</p>
-                        <h4 class="text-lg font-semibold mt-4 text-gray-900">Andrew Garfield</h4>
-                        <span class="text-sm text-gray-500">CTO of Mexant</span>
-                        <div class="w-16 h-16 mt-4 rounded-full overflow-hidden border-2 border-orange-500">
-                            <img src="{{ asset('images/testimonials-01.jpg') }}" alt="Andrew Garfield" class="w-full h-full object-cover">
-                        </div>
-                    </div>
-
-                    <!-- Testemunho 3 -->
-                    <div class="swiper-slide bg-white p-6 rounded-lg shadow-lg flex flex-col items-center text-center">
-                        <i class="fa fa-quote-left text-orange-500 text-3xl mb-4"></i>
-                        <p class="text-gray-700 italic">“Ut dictum vehicula massa, ac pharetra leo tincidunt eu. Phasellus in tristique magna, ac gravida leo. Integer sed lorem sapien.”</p>
-                        <h4 class="text-lg font-semibold mt-4 text-gray-900">George Lopez</h4>
-                        <span class="text-sm text-gray-500">Crypto Manager</span>
-                        <div class="w-16 h-16 mt-4 rounded-full overflow-hidden border-2 border-orange-500">
-                            <img src="{{ asset('images/testimonials-01.jpg') }}" alt="George Lopez" class="w-full h-full object-cover">
-                        </div>
-                    </div>
+                <div class="flex justify-center">
+                    <img src="{{ asset('images/client-01.png') }}" alt="Cliente 2" class="w-24 h-auto">
+                </div>
+                <div class="flex justify-center">
+                    <img src="{{ asset('images/client-01.png') }}" alt="Cliente 3" class="w-24 h-auto">
+                </div>
+                <div class="flex justify-center">
+                    <img src="{{ asset('images/client-01.png') }}" alt="Cliente 4" class="w-24 h-auto">
+                </div>
+                <div class="flex justify-center">
+                    <img src="{{ asset('images/client-01.png') }}" alt="Cliente 5" class="w-24 h-auto">
+                </div>
+                <div class="flex justify-center">
+                    <img src="{{ asset('images/client-01.png') }}" alt="Cliente 6" class="w-24 h-auto">
                 </div>
             </div>
-
-            <!-- Botões de Navegação -->
-            <div class="flex justify-center mt-6 space-x-4">
-                <button class="swiper-button-prev p-2 bg-gray-300 rounded-full hover:bg-gray-400">
-                    <i class="fa fa-chevron-left"></i>
-                </button>
-                <button class="swiper-button-next p-2 bg-gray-300 rounded-full hover:bg-gray-400">
-                    <i class="fa fa-chevron-right"></i>
-                </button>
-            </div>
         </div>
-    </div>
-</section>
-
-<section class="partners py-12 bg-gray-100">
-    <div class="container mx-auto px-4">
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6 justify-center items-center">
-            <div class="flex justify-center">
-                <img src="{{ asset('images/client-01.png') }}" alt="Cliente 1" class="w-24 h-auto">
-            </div>
-            <div class="flex justify-center">
-                <img src="{{ asset('images/client-01.png') }}" alt="Cliente 2" class="w-24 h-auto">
-            </div>
-            <div class="flex justify-center">
-                <img src="{{ asset('images/client-01.png') }}" alt="Cliente 3" class="w-24 h-auto">
-            </div>
-            <div class="flex justify-center">
-                <img src="{{ asset('images/client-01.png') }}" alt="Cliente 4" class="w-24 h-auto">
-            </div>
-            <div class="flex justify-center">
-                <img src="{{ asset('images/client-01.png') }}" alt="Cliente 5" class="w-24 h-auto">
-            </div>
-            <div class="flex justify-center">
-                <img src="{{ asset('images/client-01.png') }}" alt="Cliente 6" class="w-24 h-auto">
-            </div>
-        </div>
-    </div>
-</section>
+    </section>
 
 
 
-<!-- ======= Footer ======= -->
-@include('footer')
+    <!-- ======= Footer ======= -->
+    @include('footer')
 </body>
-</html>
 
+</html>

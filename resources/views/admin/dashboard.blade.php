@@ -29,7 +29,7 @@
         <!-- Sidebar -->
         <aside id="sidebar"
             class="w-64 bg-blue-900 text-white p-5 fixed inset-y-0 left-0 transform -translate-x-full md:translate-x-0 transition-transform duration-300 z-50">
-            <a href="/">
+            <a href="{{ route('home') }}">
                 <img src="{{ asset('images/logo.png') }}" class="h-10 mb-6" alt="">
             </a>
             <h2 class="text-2xl font-bold mb-6">Painel Admin</h2>
@@ -48,8 +48,9 @@
                             <li class="mb-4">
                                 <button data-toggle="coursesMenu" class="block w-full text-left py-2 px-4 hover:bg-blue-700 rounded">Formações</button>
                                 <ul id="coursesMenu" class="hidden ml-4">
-                                    <li><a href="#" class="block py-2 px-4 hover:bg-blue-600 rounded">Criar</a></li>
-                                    <li><a href="#" class="block py-2 px-4 hover:bg-blue-600 rounded">Visualizar</a></li>
+                                    <li><a href="{{ route('admin.cursos.create') }}" class="block py-2 px-4 hover:bg-blue-600 rounded">Criar</a></li>
+                                    <li><a href="{{ route('admin.cursos.index') }}" class="block py-2 px-4 hover:bg-blue-600 rounded">Visualizar</a></li>
+                                    <li><a href="{{ route('admin.inscricoes') }}" class="block py-2 px-4 hover:bg-blue-600 rounded">Matriculas</a></li>
                                 </ul>
                             </li>
 

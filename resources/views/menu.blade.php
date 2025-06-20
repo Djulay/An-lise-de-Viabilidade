@@ -17,6 +17,8 @@
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
 
 
 </head>
@@ -27,7 +29,7 @@
 
         <div class="container space-x-5 mx-auto flex  justify-center items-center p-5 bg-transparent">
             <!-- ***** Logo ***** -->
-            <a href="/" class="text-2xl font-bold text-gray-800">
+            <a href="{{ route('home') }}" class="text-2xl font-bold text-gray-800">
                 <img src="{{ asset('images/logo.png') }}" alt="Logo" class="h-10 ">
             </a>
 
@@ -45,11 +47,11 @@
                 class="hidden text-lg md:flex md:space-x-6 text-white
                 md:static absolute top-16 left-0 w-full md:w-auto bg-[#14192D] md:bg-transparent
                 shadow-md md:shadow-none md:flex-row flex-col items-center md:items-start py-4 md:py-0 text-center">
-                <li><a href="#top" class="block py-2 hover:text-orange-600">Início</a></li>
-                <li><a href="#Benefícios" class="block py-2 hover:text-orange-600">Benefícios</a></li>
-                <li><a href="#about" class="block py-2 hover:text-orange-600">Sobre os Cursos</a></li>
-                <li><a href="#form" class="block py-2 hover:text-orange-600">Inscrição</a></li>
-                <li><a href="#testimonials" class="block py-2 hover:text-orange-600">Testemunho</a></li>
+                <li><a href="{{ route('home') }}" class="block py-2 hover:text-orange-600">Início</a></li>
+                <li><a href="{{ route('home') }}#Benefícios" class="block py-2 hover:text-orange-600">Benefícios</a></li>
+                <li><a href="{{ route('home') }}#cursos" class="block py-2 hover:text-orange-600">Cursos</a></li>
+                <li><a href="{{ route('home') }}#form" class="block py-2 hover:text-orange-600">Inscrição</a></li>
+                <li><a href="{{ route('home') }}#testimonials" class="block py-2 hover:text-orange-600">Testemunho</a></li>
                 <li><a href="contact-us.html" class="block py-2 hover:text-orange-600">Entre em Contato</a></li>
 
                 @auth

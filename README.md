@@ -64,3 +64,20 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+
+
+<!-- criando um super admim pelo tinker
+
+1 - php artisan tinker
+
+
+2- use App\Models\User;
+
+$user = User::create([
+    'name' => 'Super Admin 2',
+    'email' => 'jc@admin.com',
+    'password' => bcrypt('jc945693281'),
+    'role' => 'super-admin',
+]); -->

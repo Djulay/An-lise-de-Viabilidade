@@ -14,9 +14,14 @@ class AuthenticatedSessionController extends Controller
     /**
      * Display the login view.
      */
-    public function create(): View
+    public function create(Request $request): View
     {
-        return view('auth.login');
+          // Guarda a URL de redirecionamento após login, se existir
+    if ($request->has('redirect_to')) {
+        session(['redirect_to' => $request->query('redirect_to')]);
+    }
+
+    return view('auth.login');
     }
 
     /**
@@ -24,11 +29,13 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
-        $request->authenticate();
+         $request->authenticate();
+    $request->session()->regenerate();
 
-        $request->session()->regenerate();
+    // Usa a sessão para redirecionar, se houver
+    $redirectTo = session('redirect_to');
 
-        return redirect()->intended(route('dashboard', absolute: false));
+    return redirect()->to($redirectTo ?? route('dashboard'));
     }
 
     /**

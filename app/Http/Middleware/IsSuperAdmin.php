@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class SuperAdminMiddleware
+class isSuperAdmin
 {
     public function handle(Request $request, Closure $next)
     {
@@ -14,6 +14,6 @@ class SuperAdminMiddleware
             return $next($request);
         }
 
-        abort(403, 'Acesso negado');
+        abort(403, 'Acesso não autorizado. Apenas super-admins podem acessar esta área.');
     }
 }

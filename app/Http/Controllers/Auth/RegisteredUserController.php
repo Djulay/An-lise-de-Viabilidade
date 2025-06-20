@@ -17,8 +17,13 @@ class RegisteredUserController extends Controller
     /**
      * Display the registration view.
      */
-    public function create(): View
+    public function create(Request $request): View
     {
+       // Guarda a URL de redirecionamento após registro, se existir
+        if ($request->has('redirect_to')) {
+            session(['redirect_to' => $request->query('redirect_to')]);
+        }
+
         return view('auth.register');
     }
 
@@ -29,10 +34,10 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+       $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|confirmed|min:8',
         ]);
 
         $user = User::create([
@@ -45,6 +50,9 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return redirect(route('dashboard', absolute: false));
+        // Redireciona para a URL salva na sessão (ou dashboard se não tiver)
+        $redirectTo = session('redirect_to');
+        session()->forget('redirect_to'); // Limpa a sessão após o uso
+        return redirect()->to($redirectTo ?? route('dashboard'));
     }
 }
