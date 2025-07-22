@@ -1,9 +1,23 @@
 <!DOCTYPE html>
 
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FYMK5003LT"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-FYMK5003LT');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://unpkg.com/alpinejs" defer></script>
+    <!-- PNG -->
+    <link rel="icon" type="image/png" href="{{ asset('images/logo.png') }}">
+
+
 
 </head>
 
@@ -23,23 +37,61 @@
                     <p class="mt-4">Este curso abrange tudo, desde fórmulas básicas até automação com VBA.</p>
                     <div class="mt-6 flex justify-center space-x-4">
                         <a href="#about" class="bg-orange-600 px-6 py-2 rounded hover:bg-orange-700">Saber Mais</a>
-                        <a href="#form" class="bg-green-600 px-6 py-2 rounded hover:bg-green-700">Inscreva-te</a>
+                        <a href="#cursos" class="bg-green-600 px-6 py-2 rounded hover:bg-green-700">Inscreva-te</a>
                     </div>
                 </div>
             </div>
 
             <!-- Slide 2 -->
-            <div class="w-full flex-shrink-0 h-full bg-cover bg-center flex items-center justify-center text-white"
+            <div class="w-full flex-shrink-0 h-full bg-cover bg-center flex items-center justify-center text-white relative"
                 style="background-image: url('{{ asset('images/slide-02.jpg') }}');">
-                <div class="text-center ">
-                    <h2 class="text-4xl font-bold"><span class="text-orange-500">Análise de Viabilidade</span> O Guia
-                        para o Sucesso do Seu Projeto</h2>
-                    <p class="mt-4">Está pensando em tirar uma ideia do papel? Antes de investir tempo e dinheiro, é
-                        crucial saber se o seu projeto tem chances reais de sucesso.</p>
+                <div class="text-center max-w-3xl px-4">
+                    <h2 class="text-4xl font-bold">
+                        <span class="text-orange-500">Análise de Viabilidade</span> O Guia para o Sucesso do Seu Projeto
+                    </h2>
+                    <p class="mt-4">
+                        Está pensando em tirar uma ideia do papel? Antes de investir tempo e dinheiro, é crucial saber
+                        se o seu projeto tem chances reais de sucesso.
+                    </p>
+
+                    <!-- Countdown Timer -->
+                    <div x-data="countdown('2025-08-01T00:00:00')"
+                        class="mt-6 bg-black bg-opacity-30 rounded-lg p-4 inline-block">
+                        <p class="text-lg font-semibold mb-2">Disponível em:</p>
+                        <div class="text-orange-500 flex justify-center space-x-4 text-xl font-bold">
+                            <div class="text-center">
+                                <div x-text="days"></div>
+                                <span class="text-sm">Dias</span>
+                            </div>
+                            <div class="text-center">
+                                <div x-text="hours"></div>
+                                <span class="text-sm">Horas</span>
+                            </div>
+                            <div class="text-center">
+                                <div x-text="minutes"></div>
+                                <span class="text-sm">Minutos</span>
+                            </div>
+                            <div class="text-center">
+                                <div x-text="seconds"></div>
+                                <span class="text-sm">Segundos</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Botões -->
                     <div class="mt-6 flex justify-center space-x-4">
                         <a href="#about" class="bg-orange-600 px-6 py-2 rounded hover:bg-orange-700">Saber Mais</a>
-                        <a href="{{ url('/dashboard') }}" id="shake-button"
-                            class="bg-green-600 px-6 py-2 rounded hover:bg-green-700 inline-block">Crie Agora</a>
+                        @if (auth()->check())
+                            <a href="{{ route('analises.create') }}" id="shake-button"
+                                class="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700">
+                                Criar Viabilidade
+                            </a>
+                        @else
+                            <a href="{{ route('login') }}?redirect_to={{ route('analises.create') }}" id="shake-button"
+                                class="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700">
+                                Criar Viabilidade
+                            </a>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -52,7 +104,7 @@
                     <p class="mt-4">Aprimore suas habilidades e se destaque no mercado de trabalho.</p>
                     <div class="mt-6 flex justify-center space-x-4">
                         <a href="#about" class="bg-orange-600 px-6 py-2 rounded hover:bg-orange-700">Saber Mais</a>
-                        <a href="#form" id="shake-button"
+                        <a href="#cursos" id="shake-button"
                             class="bg-green-600 px-6 py-2 rounded hover:bg-green-700 inline-block">Inscreva-te</a>
                     </div>
                 </div>
@@ -151,9 +203,21 @@
                     <div class="flex items-center space-x-4">
                         <a href="#" class="bg-orange-600 px-6 py-2 rounded hover:bg-orange-700 text-center">Saber
                             Mais</a>
-                        <a href="#" id="shake-button"
-                            class="bg-green-600 px-6 py-2 rounded hover:bg-green-700 text-center">Criar agora</a>
+                        @if (auth()->check())
+                            <a href="{{ route('analises.create') }}" id="shake-button"
+                                class="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700">
+                                Criar Viabilidade
+                            </a>
+                        @else
+                            <a href="{{ route('login') }}?redirect_to={{ route('analises.create') }}" id="shake-button"
+                                class="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700">
+                                Criar Viabilidade
+                            </a>
+                        @endif
+
                     </div>
+
+
                 </div>
             </div>
         </div>
@@ -163,7 +227,7 @@
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-10">
                 <h6 class="text-lg font-bold text-orange-600">Cursos em Destaque</h6>
-                <h4 class="text-3xl font-bold">O que vai aprender</h4>
+                <h4 class="text-3xl font-bold">O que você pode aprender</h4>
             </div>
 
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -198,67 +262,108 @@
     </section>
 
     <!-- ======= formulario de inscrição ======= -->
-    <section class="relative py-12 bg-gray-100" id="form">
+    <section class="relative py-20 bg-gray-900" id="form">
         <div class="container mx-auto px-4 flex items-center justify-center">
             <div
-                class="relative flex flex-col md:flex-row w-full md:w-3/4 lg:w-2/3 bg-white shadow-lg rounded-lg overflow-hidden">
+                class="relative flex flex-col md:flex-row w-full md:w-4/5 lg:w-2/3 bg-gray-900 shadow-2xl rounded-2xl overflow-hidden">
 
-                <!-- Imagem (Maior que o container) -->
-                <div class="relative w-full md:w-1/2 hidden md:flex items-center justify-center">
-                    <img src="{{ asset('images/calculator-image.png') }}" alt="Imagem"
-                        class="absolute left-0 w-[120%] h-auto max-h-[150%] transform -translate-x-10 drop-shadow-lg">
+                <!-- Imagem lateral -->
+                <div class="relative w-full md:w-1/2 hidden md:flex items-center justify-center bg-gray-800">
+                    <img src="{{ asset('images/calculator-image.png') }}" alt="Análise de Viabilidade"
+                        class="w-[120%] h-auto transform -translate-x-8 md:-translate-x-10 drop-shadow-2xl">
                 </div>
 
-                <!-- Formulário -->
-                <div class="w-full md:w-1/2 bg-gray-900 text-white p-8">
-                    <div class="text-center md:text-left mb-6">
-                        <h6 class="text-orange-500 font-bold text-lg">Faça</h6>
-                        <h4 class="text-2xl font-bold">A sua inscrição agora</h4>
-                    </div>
-                    <form id="calculate" action="" method="get">
-                        <div class="grid grid-cols-1 gap-4">
-                            <div>
-                                <label for="name" class="block text-sm font-medium">Nome</label>
-                                <input type="text" name="name" id="name" placeholder="Seu nome"
-                                    class="mt-1 p-2 w-full border border-gray-700 rounded-lg bg-transparent text-white placeholder-gray-400 focus:ring-2"
-                                    required>
-                            </div>
-                            <div>
-                                <label for="email" class="block text-sm font-medium">Email</label>
-                                <input type="email" name="email" id="email" placeholder="exemplo@email.com"
-                                    class="mt-1 p-2 w-full border border-gray-700 rounded-lg bg-transparent text-white placeholder-gray-400 "
-                                    required>
-                            </div>
-                            <div>
-                                <label for="tel" class="block text-sm font-medium">Nº de Telefone</label>
-                                <input type="tel" name="tel" id="tel" placeholder="ex: 923456789"
-                                    class="mt-1 p-2 w-full border border-gray-700 rounded-lg bg-transparent text-white placeholder-gray-400 "
-                                    required>
-                            </div>
-                            <div>
-                                <label for="bi" class="block text-sm font-medium">Nº do Bilhete de
-                                    Identidade</label>
-                                <input type="text" name="bi" id="bi" placeholder="ex: 123456789LA012"
-                                    class="mt-1 p-2 w-full border border-gray-700 rounded-lg bg-transparent text-white placeholder-gray-400 "
-                                    required>
-                            </div>
-                            <div>
-                                <label for="city" class="block text-sm font-medium">Cidade</label>
-                                <input type="text" name="city" id="city" placeholder="Sua cidade"
-                                    class="mt-1 p-2 w-full border border-gray-700 rounded-lg bg-transparent text-white placeholder-gray-400 ">
-                            </div>
-                            <div>
-                                <button type="submit" id="form-submit"
-                                    class="w-full bg-orange-500 text-white py-2 rounded-lg font-semibold hover:bg-orange-600 transition">
-                                    Inscreva-te Agora
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                <!-- Conteúdo de chamada -->
+                <div class="w-full md:w-1/2 p-10 text-white flex flex-col justify-center">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-orange-500 mb-4">
+                        Analise a Viabilidade da Sua Ideia de Negócio
+                    </h2>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        Não invista no escuro! Deixe a nossa inteligência artificial ajudá-lo a descobrir se sua ideia
+                        tem futuro.
+                        Faça uma análise gratuita e receba dicas práticas para melhorar seu plano.
+                    </p>
+                    <a href="{{ route('analises.create') }}"
+                        class="inline-block bg-orange-500 hover:bg-orange-600 text-white text-center font-bold py-3 px-6 rounded-xl shadow-lg transition duration-300">
+                        Iniciar Análise Agora
+                    </a>
                 </div>
+
             </div>
         </div>
     </section>
+
+    <section id="cursos" class="my-16 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-10">
+                <h6 class="text-lg font-bold text-orange-600">Nosso serviços</h6>
+                <h4 class="text-3xl font-bold">Prestamos serviços nas seguintes areas</h4>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+                <div class="max-w-3xl mx-auto p-4 space-y-4" x-data="{ open: null }">
+                    <!-- Tema 1 -->
+                    <div @click="open === 1 ? open = null : open = 1" class="cursor-pointer border p-4 rounded shadow">
+                        <p class="font-semibold text-lg flex justify-between items-center">
+                            Formação e Treinamento
+                            <span class="text-orange-600 font-bold text-xl">+</span>
+                        </p>
+                        <div x-show="open === 1" x-transition class="mt-2 text-gray-700">
+                            Capacitações presenciais e online voltadas para inovação, tecnologia, liderança, gestão de
+                            negócios e ferramentas digitais. Ajudamos profissionais e empresas a se adaptarem às
+                            exigências do mercado moderno com conteúdos práticos, atualizados e aplicáveis ao contexto
+                            africano.
+                        </div>
+                    </div>
+
+                    <!-- Tema 2 -->
+                    <div @click="open === 2 ? open = null : open = 2" class="cursor-pointer border p-4 rounded shadow">
+                        <p class="font-semibold text-lg flex justify-between items-center">
+                            Consultoria Estratégica
+                            <span class="text-orange-600 font-bold text-xl">+</span>
+                        </p>
+                        <div x-show="open === 2" x-transition class="mt-2 text-gray-700">
+                            Atuamos lado a lado com empresas e empreendedores para diagnosticar desafios, propor
+                            soluções e desenhar estratégias sob medida. Nossas consultorias abrangem gestão, marketing,
+                            operações, finanças e transformação digital com foco em resultados reais.
+                        </div>
+                    </div>
+
+                    <!-- Tema 3 -->
+                    <div @click="open === 3 ? open = null : open = 3" class="cursor-pointer border p-4 rounded shadow">
+                        <p class="font-semibold text-lg flex justify-between items-center">
+                            Desenvolvimento de Softwares e Aplicativos
+                            <span class="text-orange-600 font-bold text-xl">+</span>
+                        </p>
+                        <div x-show="open === 3" x-transition class="mt-2 text-gray-700">
+                            Criamos soluções digitais personalizadas para atender às necessidades de cada negócio: desde
+                            websites institucionais até aplicativos móveis e sistemas completos. Usamos tecnologias
+                            modernas, com foco em segurança, escalabilidade e experiência do usuário.
+                        </div>
+                    </div>
+
+                    <!-- Tema 4 -->
+                    <div @click="open === 4 ? open = null : open = 4" class="cursor-pointer border p-4 rounded shadow">
+                        <p class="font-semibold text-lg flex justify-between items-center">
+                            Elaboração de Estudos de Viabilidade
+                            <span class="text-orange-600 font-bold text-xl">+</span>
+                        </p>
+                        <div x-show="open === 4" x-transition class="mt-2 text-gray-700">
+                            Analisamos ideias de negócio e projetos para determinar seu potencial de sucesso. Avaliamos
+                            fatores técnicos, financeiros, de mercado e legais para oferecer relatórios claros e
+                            confiáveis que orientam a tomada de decisão dos nossos clientes.
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+    </section>
+
+
 
     <!-- ======= Testemunho ======= -->
     <section id="testimonials" class="py-12 bg-gray-100">
@@ -332,6 +437,10 @@
 
     <section class="partners py-12 bg-gray-100">
         <div class="container mx-auto px-4">
+            <div class="text-center mb-8">
+                <h6 class="text-orange-500 font-bold text-lg">Parceiros</h6>
+                <h4 class="text-3xl font-bold text-gray-800">Seja nosso parceiro assim como</h4>
+            </div>
             <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6 justify-center items-center">
                 <div class="flex justify-center">
                     <img src="{{ asset('images/client-01.png') }}" alt="Cliente 1" class="w-24 h-auto">
@@ -360,5 +469,36 @@
     <!-- ======= Footer ======= -->
     @include('footer')
 </body>
+
+<!-- Script do Countdown com Alpine.js -->
+<script>
+    function countdown(targetDateStr) {
+        return {
+            days: '00',
+            hours: '00',
+            minutes: '00',
+            seconds: '00',
+            interval: null,
+            init() {
+                const target = new Date(targetDateStr).getTime();
+                this.interval = setInterval(() => {
+                    const now = new Date().getTime();
+                    const distance = target - now;
+
+                    if (distance <= 0) {
+                        clearInterval(this.interval);
+                        this.days = this.hours = this.minutes = this.seconds = '00';
+                        return;
+                    }
+
+                    this.days = String(Math.floor(distance / (1000 * 60 * 60 * 24))).padStart(2, '0');
+                    this.hours = String(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
+                    this.minutes = String(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
+                    this.seconds = String(Math.floor((distance % (1000 * 60)) / 1000)).padStart(2, '0');
+                }, 1000);
+            }
+        }
+    }
+</script>
 
 </html>

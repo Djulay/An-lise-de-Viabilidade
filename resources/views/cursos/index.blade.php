@@ -2,10 +2,23 @@
 <html lang="pt">
 
 <head>
+    <link rel="icon" type="image/png" href="{{ asset('images/logo.png') }}">
+
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FYMK5003LT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FYMK5003LT');
+</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/alpinejs" defer></script>
+
     <script>
         function toggleDropdown() {
             document.getElementById('userDropdown').classList.toggle('hidden');
@@ -29,7 +42,7 @@
         <!-- Sidebar -->
         <aside id="sidebar"
             class="w-64 bg-blue-900 text-white p-5 fixed inset-y-0 left-0 transform -translate-x-full md:translate-x-0 transition-transform duration-300 z-50">
-             <a href="{{ route('home') }}">
+            <a href="{{ route('home') }}">
                 <img src="{{ asset('images/logo.png') }}" class="h-10 mb-6" alt="">
             </a>
             <h2 class="text-2xl font-bold mb-6">Painel Admin</h2>
@@ -41,8 +54,10 @@
                         <button data-toggle="usersMenu"
                             class="block w-full text-left py-2 px-4 hover:bg-blue-700 rounded">Usuários</button>
                         <ul id="usersMenu" class="hidden ml-4">
-                            <li><a href="#" class="block py-2 px-4 hover:bg-blue-600 rounded">Criar</a></li>
-                            <li><a href="#" class="block py-2 px-4 hover:bg-blue-600 rounded">Visualizar</a></li>
+                            <li><a href="{{ route('admin.usuarios.create') }}"
+                                    class="block py-2 px-4 hover:bg-blue-600 rounded">Criar</a></li>
+                            <li><a href="{{ route('admin.usuarios.index') }}"
+                                    class="block py-2 px-4 hover:bg-blue-600 rounded">Visualizar</a></li>
                         </ul>
                     </li>
 
@@ -65,7 +80,7 @@
                             class="block w-full text-left py-2 px-4 hover:bg-blue-700 rounded">Análise de
                             Viabilidade</button>
                         <ul id="viabilityMenu" class="hidden ml-4">
-                            <li><a href="#" class="block py-2 px-4 hover:bg-blue-600 rounded">Criar</a></li>
+                           <li><a href="{{ route("analises.create") }}" class="block py-2 px-4 hover:bg-blue-600 rounded">Criar</a></li>
                             <li><a href="#" class="block py-2 px-4 hover:bg-blue-600 rounded">Visualizar</a></li>
                         </ul>
                     </li>
@@ -195,16 +210,41 @@
                                                 class="bg-blue-600 text-white text-xs px-4 py-2 rounded-md hover:bg-blue-700 transition">
                                                 Editar
                                             </a>
-                                            <form action="{{ route('admin.cursos.destroy', $curso->id) }}"
-                                                method="POST"
-                                                onsubmit="return confirm('Tem certeza que deseja apagar este curso?')">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit"
+                                            <div x-data="{ showModal: false }" class="inline">
+                                                <!-- Botão que abre o modal -->
+                                                <button @click="showModal = true"
                                                     class="bg-red-600 text-white text-xs px-4 py-2 rounded-md hover:bg-red-700 transition">
                                                     Apagar
                                                 </button>
-                                            </form>
+
+                                                <!-- Modal de confirmação -->
+                                                <div x-show="showModal" x-transition.opacity
+                                                    class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+                                                    <div @click.away="showModal = false"
+                                                        class="bg-white p-6 rounded-lg shadow-xl w-full max-w-sm text-center space-y-4">
+                                                        <h2 class="text-lg font-semibold text-gray-800">Deseja
+                                                            realmente apagar?</h2>
+                                                        <p class="text-sm text-gray-600">Esta ação é irreversível.</p>
+                                                        <div class="flex justify-center gap-4 mt-4">
+                                                            <form
+                                                                action="{{ route('admin.cursos.destroy', $curso->id) }}"
+                                                                method="POST">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                <button type="submit"
+                                                                    class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition">
+                                                                    Sim, apagar
+                                                                </button>
+                                                            </form>
+                                                            <button @click="showModal = false"
+                                                                class="bg-gray-300 text-gray-800 px-4 py-2 rounded hover:bg-gray-400 transition">
+                                                                Cancelar
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
                                         </div>
                                     </td>
                                 </tr>

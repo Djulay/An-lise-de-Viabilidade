@@ -18,6 +18,8 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <link rel="icon" type="image/png" href="{{ asset('images/logo.png') }}">
+
 
 
 
@@ -50,9 +52,9 @@
                 <li><a href="{{ route('home') }}" class="block py-2 hover:text-orange-600">Início</a></li>
                 <li><a href="{{ route('home') }}#Benefícios" class="block py-2 hover:text-orange-600">Benefícios</a></li>
                 <li><a href="{{ route('home') }}#cursos" class="block py-2 hover:text-orange-600">Cursos</a></li>
-                <li><a href="{{ route('home') }}#form" class="block py-2 hover:text-orange-600">Inscrição</a></li>
                 <li><a href="{{ route('home') }}#testimonials" class="block py-2 hover:text-orange-600">Testemunho</a></li>
-                <li><a href="contact-us.html" class="block py-2 hover:text-orange-600">Entre em Contato</a></li>
+                <li><a href="{{ route('quem_somos') }}#form" class="block py-2 hover:text-orange-600">Sobre Nós</a></li>
+                <li><a href="{{ route('contacto') }}" class="block py-2 hover:text-orange-600">Entre em Contato</a></li>
 
                 @auth
                     <li>

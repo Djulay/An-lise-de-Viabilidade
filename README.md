@@ -76,8 +76,28 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 2- use App\Models\User;
 
 $user = User::create([
-    'name' => 'Super Admin 2',
-    'email' => 'jc@admin.com',
+    'name' => 'Edson Domingos',
+    'email' => 'edsondomingos2001@hotmail.com',
+    'password' => bcrypt('edson123'),
+    'role' => 'super-admin',
+]); 
+
+$user = User::create([
+    'name' => 'Júlio César',
+    'email' => 'juliodjulay@gmail.com',
     'password' => bcrypt('jc945693281'),
     'role' => 'super-admin',
+]);
+
+
+$user = User::create([
+    'name' => 'Secretario',
+    'email' => 'secretaria@ideiaviavel.co.ao',
+    'password' => bcrypt('secretaria123'),
+    'role' => 'super-admin',
 ]); -->
+
+
+**para importar a base de dados
+
+**php artisan migrate --seed

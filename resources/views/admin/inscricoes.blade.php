@@ -2,6 +2,15 @@
 <html lang="pt">
 
 <head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FYMK5003LT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FYMK5003LT');
+</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
@@ -41,8 +50,10 @@
                         <button data-toggle="usersMenu"
                             class="block w-full text-left py-2 px-4 hover:bg-blue-700 rounded">Usuários</button>
                         <ul id="usersMenu" class="hidden ml-4">
-                            <li><a href="#" class="block py-2 px-4 hover:bg-blue-600 rounded">Criar</a></li>
-                            <li><a href="#" class="block py-2 px-4 hover:bg-blue-600 rounded">Visualizar</a></li>
+                            <li><a href="{{ route('admin.usuarios.create') }}"
+                                    class="block py-2 px-4 hover:bg-blue-600 rounded">Criar</a></li>
+                            <li><a href="{{ route('admin.usuarios.index') }}"
+                                    class="block py-2 px-4 hover:bg-blue-600 rounded">Visualizar</a></li>
                         </ul>
                     </li>
 
@@ -65,7 +76,7 @@
                             class="block w-full text-left py-2 px-4 hover:bg-blue-700 rounded">Análise de
                             Viabilidade</button>
                         <ul id="viabilityMenu" class="hidden ml-4">
-                            <li><a href="#" class="block py-2 px-4 hover:bg-blue-600 rounded">Criar</a></li>
+                           <li><a href="{{ route("analises.create") }}" class="block py-2 px-4 hover:bg-blue-600 rounded">Criar</a></li>
                             <li><a href="#" class="block py-2 px-4 hover:bg-blue-600 rounded">Visualizar</a></li>
                         </ul>
                     </li>

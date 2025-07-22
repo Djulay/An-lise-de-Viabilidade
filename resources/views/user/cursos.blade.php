@@ -2,6 +2,17 @@
 <html lang="pt">
 
 <head>
+    <link rel="icon" type="image/png" href="{{ asset('images/logo.png') }}">
+
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FYMK5003LT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FYMK5003LT');
+</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
@@ -31,7 +42,7 @@
             <a href="{{ route('home') }}">
                 <img src="{{ asset('images/logo.png') }}" class="h-10 mb-6" alt="">
             </a>
-            <h2 class="text-2xl font-bold mb-6">Painel Admin</h2>
+             <h2 class="text-2xl font-bold mb-6">Painel do Usuário</h2>
             <nav>
                 <ul>
                     <li class="mb-4"><a href="{{ route('dashboard') }}"
@@ -52,8 +63,10 @@
                             class="block w-full text-left py-2 px-4 hover:bg-blue-700 rounded">Análise de
                             Viabilidade</button>
                         <ul id="viabilityMenu" class="hidden ml-4">
-                            <li><a href="#" class="block py-2 px-4 hover:bg-blue-600 rounded">Criar</a></li>
-                            <li><a href="#" class="block py-2 px-4 hover:bg-blue-600 rounded">Visualizar</a></li>
+                              <li><a href="{{ route('analises.create') }}"
+                                    class="block py-2 px-4 hover:bg-blue-600 rounded">Criar</a></li>
+                            <li><a href="{{ route('analises.index') }}"
+                                    class="block py-2 px-4 hover:bg-blue-600 rounded">Visualizar</a></li>
                         </ul>
                     </li>
                 </ul>

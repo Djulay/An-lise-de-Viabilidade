@@ -19,7 +19,7 @@ class RegisteredUserController extends Controller
      */
     public function create(Request $request): View
     {
-       // Guarda a URL de redirecionamento após registro, se existir
+        // Guarda a URL de redirecionamento após registro, se existir
         if ($request->has('redirect_to')) {
             session(['redirect_to' => $request->query('redirect_to')]);
         }
@@ -34,15 +34,20 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-       $request->validate([
+        $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|confirmed|min:8',
+            'telefone' => 'nullable|string|max:20',
+            'provincia' => 'nullable|string|max:100',
+            'termos' => ['accepted'], // <- essa linha garante que o usuário aceitou os termos
         ]);
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
+            'telefone' => $request->telefone,
+            'provincia' => $request->provincia,
             'password' => Hash::make($request->password),
         ]);
 

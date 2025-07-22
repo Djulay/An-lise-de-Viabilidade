@@ -1,57 +1,103 @@
-<x-guest-layout>
-    <!-- Session Status -->
-    <x-auth-session-status class=" mb-4" :status="session('status')" />
-    <h1 class=" text-center text-3xl font-bold  text-orange-600">Entrar em Sua Conta</h1>
-    <form method="POST" action="{{ route('login') }}" class="w-full max-w-md bg-white p-6 rounded-lg shadow-md">
-        @csrf
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full " type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
+<head>
+    <link rel="icon" type="image/png" href="{{ asset('images/logo.png') }}">
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Senha')" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FYMK5003LT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-          <input id="password" class="block mt-1 w-full rounded-lg"
-          type="password"
-          name="password"
-          required autocomplete="current-password">
-            {{-- <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" /> --}}
+  gtag('config', 'G-FYMK5003LT');
+</script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
+    <title>Entrar na Conta</title>
 
-        <!-- Remember Me -->
-        <div class="block mt-4">
-            <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
-                <span class="ms-2 text-sm text-gray-600">{{ __('Gurdar Sessão') }}</span>
-            </label>
-        </div>
-        <div class="flex items-center justify-between">
-            <div >
-                <a href="{{ route('register') }}" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md">
-                    Criar Conta
-                </a>
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="{{ asset('js/typing.js') }}"></script>
+</head>
+
+<body class="min-h-screen bg-white">
+    <div class="flex flex-col md:flex-row h-screen">
+
+        <!-- Lado Esquerdo com Imagem -->
+        <div class="relative w-full md:w-1/2 hidden md:flex items-center justify-center text-white">
+            <img src="{{ asset('images/8.jpg') }}" alt="Imagem" class="w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-orange-600 opacity-60"></div>
+            <div class="absolute px-6 text-center">
+                <h1 class="text-4xl font-bold tracking-tight">Bem-vindo de Volta</h1>
+                <p id="typing-text" class="mt-2 text-lg font-mono"></p>
             </div>
-            <div class="flex items-center justify-end mt-4">
-                @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
-                        {{ __('Esqueceu sua senha?') }}
-                    </a>
+        </div>
+
+        <!-- Lado Direito com Formulário -->
+        <div class="w-full md:w-1/2 flex items-center justify-center p-8">
+            <div class="w-full max-w-md space-y-8">
+                <div class="text-center mb-6">
+                    <img src="{{ asset('images/logo.png') }}" class="mx-auto h-16" alt="Logo">
+                    <h2 class="text-2xl font-bold text-gray-800">Entrar em Sua Conta</h2>
+                </div>
+
+                @if (session('status'))
+                    <div class="bg-green-100 text-green-800 text-sm px-4 py-2 rounded">
+                        {{ session('status') }}
+                    </div>
                 @endif
 
-                <x-primary-button class="ms-3">
-                    {{ __('Log in') }}
-                </x-primary-button>
+                <form method="POST" action="{{ route('login') }}" class="space-y-5">
+                    @csrf
+
+                    <!-- Email -->
+                    <div>
+                        <input id="email" name="email" type="email" value="{{ old('email') }}" required
+                            placeholder="Email"
+                            class="w-full border-b border-gray-300 focus:border-orange-500 bg-transparent py-2 text-sm focus:outline-none" />
+                        <x-input-error :messages="$errors->get('email')" class="mt-1 text-red-500 text-xs" />
+                    </div>
+
+                    <!-- Senha -->
+                    <div>
+                        <input id="password" name="password" type="password" required placeholder="Senha"
+                            class="w-full border-b border-gray-300 focus:border-orange-500 bg-transparent py-2 text-sm focus:outline-none" />
+                        <x-input-error :messages="$errors->get('password')" class="mt-1 text-red-500 text-xs" />
+                    </div>
+
+                    <!-- Lembrar Sessão -->
+                    <div class="flex items-center text-sm text-gray-600">
+                        <input id="remember_me" type="checkbox" name="remember"
+                            class="mr-2 border-gray-300 text-orange-600 focus:ring-orange-500">
+                        <label for="remember_me" class="select-none">Guardar Sessão</label>
+                    </div>
+
+                    <!-- Links e Botão -->
+                    <div class="flex justify-between items-center mt-4">
+                        <a href="{{ route('register') }}" class="text-sm text-gray-600 hover:text-orange-600">
+                            Criar Conta
+                        </a>
+                        <button type="submit"
+                            class="bg-orange-600 hover:bg-orange-700 text-white px-5 py-2 rounded-md text-sm font-medium transition">
+                            Entrar
+                        </button>
+                    </div>
+
+                    @if (Route::has('password.request'))
+                        <div class="text-right mt-2">
+                            <a class="text-sm text-gray-600 hover:text-orange-600" href="{{ route('password.request') }}">
+                                Esqueceu sua senha?
+                            </a>
+                        </div>
+                    @endif
+                </form>
             </div>
         </div>
-    </form>
-</x-guest-layout>
+    </div>
+</body>
+
+</html>
