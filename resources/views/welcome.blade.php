@@ -100,7 +100,7 @@
             <div class="w-full flex-shrink-0 h-full bg-cover bg-center flex items-center justify-center text-white"
                 style="background-image: url('{{ asset('images/slide-03.jpg') }}');">
                 <div class="text-center">
-                    <h2 class="text-4xl font-bold">Comece sua Jornada Hoje Mesmo!</h2>
+                    <h2 class="text-4xl font-bold">Comece sua Jornada <span class="text-orange-500">Hoje Mesmo!</span></h2>
                     <p class="mt-4">Aprimore suas habilidades e se destaque no mercado de trabalho.</p>
                     <div class="mt-6 flex justify-center space-x-4">
                         <a href="#about" class="bg-orange-600 px-6 py-2 rounded hover:bg-orange-700">Saber Mais</a>
@@ -472,7 +472,7 @@
 
 <!-- Script do Countdown com Alpine.js -->
 <script>
-    function countdown(targetDateStr) {
+    function countdown(targetDateStr = "2025-08-10T00:00:00") {
         return {
             days: '00',
             hours: '00',
@@ -500,5 +500,6 @@
         }
     }
 </script>
+
 
 </html>

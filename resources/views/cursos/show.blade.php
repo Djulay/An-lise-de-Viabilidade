@@ -68,6 +68,8 @@
     {{-- Área de Ação --}}
     <div class="mt-12 text-center space-y-4">
         @guest
+            <h2 class="text-xl font-semibold text-gray-800 mb-4">Para pagamento IBAN:0006.0000.4380.9163.3013.3
+VTC - VIAB. TREIN. CONS-PREST SERV. LDA</h2>
             <p class="text-gray-700 font-medium">
                 Para te inscreveres neste curso, é necessário fazer login. Se ainda não tem uma conta, crie uma gratuitamente.
             </p>
@@ -100,7 +102,7 @@
             </a>
         @endauth
 
-        <a href="https://wa.me/+244945693281?text=Quero%20saber%20mais%20sobre%20o%20curso%20{{ urlencode($curso->nome) }}"
+        <a href="+244934221635?text=Quero%20saber%20mais%20sobre%20o%20curso%20{{ urlencode($curso->nome) }}"
             target="_blank"
             class="block w-64 mx-auto bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition">
             Fale pelo WhatsApp

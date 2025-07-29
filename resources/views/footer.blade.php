@@ -48,7 +48,7 @@
             <h4 class="text-lg font-semibold mb-4 text-orange-500">Contacto</h4>
             <ul class="text-sm text-gray-400 space-y-2">
                 <li>Email: suporte@ideiaviavel.ao</li>
-                <li>WhatsApp: +244 945 693 281</li>
+                <a href="https://wa.me/945693281" target="_blank">WhatsApp: +244 945 693 281</a>
                 <li>Luanda - Angola</li>
             </ul>
         </div>
